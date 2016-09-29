@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Comment.delete_all()
+Comment.destroy_all
 
-c1 = Comment.create( { name: "Euan", comment: "This is the first comment" } )
-c2 = Comment.create( { name: "Euan", comment: "This is the second comment" } )
+Comment.create!( { name: "Euan", comment_text: "This is the first comment" } )
+Comment.create!( { name: "Euan", comment_text: "This is the second comment" } )
