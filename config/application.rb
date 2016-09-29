@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module WebsiteRails
+module Tamamoji
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -21,6 +21,16 @@ module WebsiteRails
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    # config.action_dispatch.default_headers = {
+    #     'Access-Control-Allow-Origin' => 'http://localhost:3000/',
+    #     'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    #   }
+    config.middleware.insert_before 0, "Rack::Cors" do
+        allow do
+            origins '*'
+            resource '*', :headers => :any, :methods => [ :get, :post, :put, :options, :delete ]
+        end
+    end
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
