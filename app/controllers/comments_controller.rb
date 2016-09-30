@@ -6,10 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    puts( "BEFORE REQUEST" )
     comment = Comment.create!( comment_params )
-    puts( params[:name] )
-    puts( "AFTER REQUEST" )
     comment.save()
     comments = Comment.all()
     render :json => comments.to_json()
