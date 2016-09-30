@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'comments#index'
 
-  post 'comments#create'
-  get 'comments#index'
+  post 'comments' => 'comments#create', defaults: {format: :json}
+  get 'comments' => 'comments#index', defaults: {format: :json}
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
