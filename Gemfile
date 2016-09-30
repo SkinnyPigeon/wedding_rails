@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+ruby '2.2.4'
+
+gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
